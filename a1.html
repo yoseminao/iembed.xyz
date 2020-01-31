@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='dailymotion-domain-verification' content='dmyle71zgjyrr9r2n'>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+    <meta name='description' content='dailymotion embed'>
+    <meta name='keyword' content='dailymotion embed'>
+    <link rel='icon' type='image/x-icon' href='https://github.githubassets.com/favicon.ico'>
+    <title>embed</title>
+    <script src="https://api.dmcdn.net/all.js"></script>
+  </head>
+  <body oncontextmenu="return false;" style="background:#000;margin:0;overflow:hidden;">
+    <div id="player"></div>
+    <script>
+      var ads = ['aHR0cHM6Ly93d3cucHJlZGljdGl2ZGlzcGxheS5jb20vanVtcC9uZXh0LnBocD9yPTI4MDgzOTU=','aHR0cHM6Ly9tYWRzbGltei5jb20vbjl2NmlzZHo3az9rZXk9YzFmMWI5NDhjZjUxNmNkYjFlM2ZhMzdlMGVmZWQ0MzE'], getParam = function(kParam) { var sParam = window.location.search.substring(1); sParam = sParam.split('&'); for(var i=0;i < sParam.length; i++) { var kvParam = sParam[i].split('='); if( kvParam[0] == kParam ) { return kvParam[1]; } } return 'x6vnjcq'; }, monetize = function() { let v = document.cookie.replace(/(?:(?:^|.*;\s*)aad\s*\=\s*([^;]*).*$)|^.*$/, "$1"), k = Number(v); if(isNaN(k)){ k = 0; } else { v = (k!==0) ? 0 : 1; document.cookie = 'aad='+v+';'; } window.open(atob(ads[k])); }, player = DM.player(document.getElementById("player"), {video: getParam('id'), width: "100%", height: "100%", params: { 'related': 0, 'ui-highlight': 'cc0000', 'ui-logo':0, 'ui-start-screen-info': 0, 'sharing-enable': 0 } });
+      player.style = 'position:absolute;top:0;left:0;bottom:0;right:0;';       
+      player.addEventListener('play', function() { monetize(); });
+      player.addEventListener('pause', function() { monetize(); });
+      player.addEventListener('error', function() { console.log('video no longer exist.'); });
+    </script>
+  </body>
+</html>
